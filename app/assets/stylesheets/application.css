@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
+
+#container {
+  margin: 48px auto;
+  width: 960px;
+}
