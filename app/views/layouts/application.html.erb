@@ -13,9 +13,9 @@
   <section id="container">
 
     <nav class="navbar navbar-default">
-      <span class="navbar-brand">Флэшкарточкер</span>
+      <a class="navbar-brand" href="/">Флэшкарточкер</a>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Все карточки</a></li>
+        <li> <%= link_to 'Все карточки', cards_path %> </li>
         <li><a href="#">Добавить карточку</a></li>
       </ul>
     </nav>
