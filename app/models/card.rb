@@ -3,9 +3,13 @@ class Card < ActiveRecord::Base
   validate :original_and_translated_texts_are_not_equal
 
   def original_and_translated_texts_are_not_equal
-    if original_text.mb_chars.strip.downcase == translated_text.mb_chars.strip.downcase
+    if mb_stripcase(original_text) == mb_stripcase(translated_text)
       errors.add(:original_text, "текст и перевод должны отличаться")
       errors.add(:translated_text, "перевод и оригинал должны отличаться")
     end
+  end
+
+  def mb_stripcase(str)
+    str.mb_chars.strip.downcase.to_s
   end
 end
