@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = Card.new(review_date: Date.today.next_day(3))
+    @card = Card.new
   end
 
   def create
