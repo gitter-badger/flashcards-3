@@ -1,0 +1,16 @@
+<div class="panel panel-info">
+  <div class="panel-heading"> <%= title %> </div>
+
+  <div class="panel-body">
+    <%= simple_form_for @card do |f| %>
+
+      <%= f.input :original_text, as: :string, label: 'Текст' %>
+
+      <%= f.input :translated_text, label: 'Перевод' %>
+
+      <%= f.input :review_date, as: :date, label: 'Дата пересмотра' %>
+
+      <%= f.submit 'Сохранить карточку' %>
+    <% end %>
+  </div>
+</div>

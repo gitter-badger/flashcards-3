@@ -5,17 +5,26 @@
       <tr>
         <th>Текст</th>
         <th>Перевод</th>
-        <th>Последний повтор</th>
+        <th>Дата пересмотра</th>
       </tr>
     </thead>
     <tbody>
     <% @cards.each do |card| %>
       <tr>
-        <td> <%= card.original_text %> </td>
+        <td>
+          <%= link_to glyph_icon('pencil'), edit_card_path(card) %>
+          <%= card.original_text %>
+        </td>
         <td> <%= card.translated_text %> </td>
         <td> <%= card.review_date.strftime('%d-%m-%Y') %> </td>
+        <td>
+          <%= link_to glyph_icon('remove'), card_path(card), method: :delete, data: {confirm: "Вы уверены?"} %>
+        </td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <div class="panel-footer">
+    <%= link_to "Добавить", new_card_path %>
+  </div>
 </div>

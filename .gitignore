@@ -17,3 +17,6 @@ config/database.yml
 /log/*
 !/log/.keep
 /tmp
+
+# Ignoge VIM undo files
+*.un~
