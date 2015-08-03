@@ -46,7 +46,6 @@ group :development, :test do
 
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-  gem 'open-uri'
   gem 'nokogiri'
 end
 
