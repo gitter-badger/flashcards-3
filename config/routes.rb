@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :cards
 
+  post 'home/check_review' => 'home#check_review'
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

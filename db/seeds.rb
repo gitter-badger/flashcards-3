@@ -14,12 +14,15 @@ doc = Nokogiri::HTML(open(url))
 
 rows = doc.search(".rowA, .rowB")
 
+Card.delete_all
+
 cards = rows.map do |row|
   columns = row.css("td")
 
   {
     original_text: columns[1].text,
-    translated_text: columns[2].text
+    translated_text: columns[2].text,
+    review_date: Date.today.next_day(rand(3))
   }
 end
 
