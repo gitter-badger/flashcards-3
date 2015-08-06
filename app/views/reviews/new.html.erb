@@ -1,0 +1,23 @@
+<% if flash[:correct_review] %>
+  <div class="alert alert-success" role="alert">
+    Правильно!
+  </div>
+<% elsif word = flash[:correct_answer] %>
+  <div class="alert alert-danger" role="alert">
+    Неверно! Правильный ответ: <%= word %>
+  </div>
+<% end %>
+
+<% if @review %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Пересмотр сегодня</div>
+    <div class="panel-body">
+      <p> <%= @review.translated_text %> </p>
+      <%= simple_form_for @review, url: { controller: 'reviews', action: 'create' }, method: :post do |f| %>
+        <%= f.input :id, as: :hidden %>
+        <%= f.input :original_text, as: :string, label: 'Введите оригинальное слово' %>
+        <%= f.submit 'Следущее слово' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

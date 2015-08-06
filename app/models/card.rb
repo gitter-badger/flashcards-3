@@ -3,10 +3,13 @@ class Card < ActiveRecord::Base
   validate :original_and_translated_texts_are_not_equal
   after_initialize :default_values
   scope :reviews_today, -> { where('review_date <= ?', Date.today) }
-  scope :random, -> { order('random()').limit(1).first }
-  scope :update_review_date, -> (id) { find(id).update(review_date: Date.today + 3) }
+  scope :random, -> { order('random()').take }
 
-  attr_accessor :user_text
+  def update_review(review)
+    if original_text == review[:original_text]
+      update(review_date: Date.today + 3)
+    end
+  end
 
   def original_and_translated_texts_are_not_equal
     if mb_stripcase(original_text) == mb_stripcase(translated_text)

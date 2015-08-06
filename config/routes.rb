@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'reviews#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :cards
 
-  post 'home/check_review' => 'home#check_review'
+  resources :reviews, only: [:new, :create]
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

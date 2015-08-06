@@ -1,24 +1,3 @@
-<% if word = flash[:correct_word] %>
-  <div class="alert alert-danger" role="alert">
-    Неверно! Правильный ответ: <%= word %>
-  </div>
-<% else %>
-  <p style="font-size: 22px;">
-  Первый в мире удобный менеджер флеш-карточек. Именно так.
-  </p>
-<% end %>
-
-<% if @random_card %>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Пересмотр сегодня</div>
-    <div class="panel-body">
-      <p> <%= @random_card.translated_text %> </p>
-      <%= simple_form_for @random_card, url: { controller: 'home', action: 'check_review' }, method: :post do |f| %>
-        <%= f.input :id, as: :hidden %>
-        <%= f.input :original_text, as: :hidden %>
-        <%= f.input :user_text, as: :string, label: 'Введите оригинальное слово' %>
-        <%= f.submit 'Следущее слово' %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+<p style="font-size: 22px;">
+Первый в мире удобный менеджер флеш-карточек. Именно так.
+</p>
