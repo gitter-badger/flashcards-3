@@ -13,10 +13,11 @@
     <div class="panel-heading">Пересмотр сегодня</div>
     <div class="panel-body">
       <p> <%= @review.translated_text %> </p>
-      <%= simple_form_for @review, url: { controller: 'reviews', action: 'create' }, method: :post do |f| %>
-        <%= f.input :id, as: :hidden %>
-        <%= f.input :original_text, as: :string, label: 'Введите оригинальное слово' %>
-        <%= f.submit 'Следущее слово' %>
+      <%= form_tag('/reviews', method: :post) do %>
+        <%= hidden_field_tag('card_id', @review[:id]) %>
+        <%= label_tag(:user_translation, 'Введите оригинальное слово', class: 'label label-default')  %>
+        <%= text_field_tag(:user_translation, nil, class: 'form-control') %>
+        <%= submit_tag('Следущее слово', class: 'btn btn-default') %>
       <% end %>
     </div>
   </div>
