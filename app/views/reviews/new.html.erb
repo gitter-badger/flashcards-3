@@ -8,16 +8,16 @@
   </div>
 <% end %>
 
-<% if @review %>
+<% if @card %>
   <div class="panel panel-primary">
     <div class="panel-heading">Пересмотр сегодня</div>
     <div class="panel-body">
-      <p> <%= @review.translated_text %> </p>
-      <%= form_tag('/reviews', method: :post) do %>
-        <%= hidden_field_tag('card_id', @review[:id]) %>
-        <%= label_tag(:user_translation, 'Введите оригинальное слово', class: 'label label-default')  %>
-        <%= text_field_tag(:user_translation, nil, class: 'form-control') %>
-        <%= submit_tag('Следущее слово', class: 'btn btn-default') %>
+      <p> <%= @card.translated_text %> </p>
+      <%= form_for :review, url: {action: 'create'} do |f| %>
+        <%= f.hidden_field(:card_id, value: @card.id) %>
+        <%= f.label(:user_translation, 'Введите оригинальное слово', class: 'label label-default')  %>
+        <%= f.text_field(:user_translation, class: 'form-control') %>
+        <%= f.submit('Следущее слово', class: 'btn btn-default') %>
       <% end %>
     </div>
   </div>

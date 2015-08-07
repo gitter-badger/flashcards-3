@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def new
-    @review = Card.reviews_today.random.take
+    @card = Card.reviews_today.random.take
   end
 
   def create
@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     if @card.perform_review(review_params[:user_translation])
       flash[:correct_review] = true
     else
-      flash[:correct_answer] = @card[:original_text]
+      flash[:correct_answer] = @card.original_text
     end
 
     redirect_to new_review_path
@@ -18,6 +18,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:user_translation, :card_id)
+    params.require(:review).permit(:user_translation, :card_id)
   end
 end
