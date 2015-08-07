@@ -4,11 +4,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = params.permit(:user_translation, :card_id)
+    @card = Card.find(review_params[:card_id])
 
-    @card = Card.find(review[:card_id])
-
-    if @card.perform_review(review)
+    if @card.perform_review(review_params[:user_translation])
       flash[:correct_review] = true
     else
       flash[:correct_answer] = @card[:original_text]
@@ -17,4 +15,9 @@ class ReviewsController < ApplicationController
     redirect_to new_review_path
   end
 
+  private
+
+  def review_params
+    params.permit(:user_translation, :card_id)
+  end
 end

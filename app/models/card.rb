@@ -5,8 +5,8 @@ class Card < ActiveRecord::Base
   scope :reviews_today, -> { where('review_date <= ?', Date.today) }
   scope :random, -> { offset(rand(Card.reviews_today.count)) }
 
-  def perform_review(review)
-    if mb_stripcase(original_text) == mb_stripcase(review[:user_translation])
+  def perform_review(user_translation)
+    if mb_stripcase(original_text) == mb_stripcase(user_translation)
       update(review_date: Date.today + 3)
     end
   end
