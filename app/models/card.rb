@@ -3,7 +3,7 @@ class Card < ActiveRecord::Base
   validate :original_and_translated_texts_are_not_equal
   after_initialize :default_values
   scope :reviews_today, -> { where('review_date <= ?', Date.today) }
-  scope :random, -> { offset(rand(Card.reviews_today.count)).take }
+  scope :random, -> { offset(rand(Card.reviews_today.count)) }
 
   def perform_review(review)
     if mb_stripcase(original_text) == mb_stripcase(review[:user_translation])

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def new
-    @review = Card.reviews_today.random
+    @review = Card.reviews_today.random.take
   end
 
   def create
@@ -16,6 +16,5 @@ class ReviewsController < ApplicationController
 
     redirect_to new_review_path
   end
-
 
 end
