@@ -4,12 +4,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @card = Card.find(review_params[:card_id])
+    card = Card.find(review_params[:card_id])
 
-    if @card.perform_review(review_params[:user_translation])
+    if card.perform_review(review_params[:user_translation])
       flash[:correct_review] = true
     else
-      flash[:correct_answer] = @card.original_text
+      flash[:correct_answer] = card.original_text
     end
 
     redirect_to new_review_path
