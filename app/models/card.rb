@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  validates :original_text, :translated_text, presence: true
+  validates :original_text, :translated_text, :review_date, presence: true
   validate :original_and_translated_texts_are_not_equal
   after_initialize :default_values
   scope :reviews_today, -> { where('review_date <= ?', Date.today) }
@@ -8,6 +8,9 @@ class Card < ActiveRecord::Base
   def perform_review(user_translation)
     if mb_stripcase(original_text) == mb_stripcase(user_translation)
       update(review_date: Date.today + 3)
+      true
+    else
+      false
     end
   end
 
@@ -23,6 +26,6 @@ class Card < ActiveRecord::Base
   end
 
   def mb_stripcase(str)
-    str.mb_chars.strip.downcase.to_s
+    str.mb_chars.strip.downcase.to_s rescue nil
   end
 end
