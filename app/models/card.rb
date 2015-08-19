@@ -26,6 +26,6 @@ class Card < ActiveRecord::Base
   end
 
   def mb_stripcase(str)
-    str.mb_chars.strip.downcase.to_s rescue nil
+    str.to_s.mb_chars.strip.downcase.to_s
   end
 end
