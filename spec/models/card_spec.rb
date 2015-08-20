@@ -31,7 +31,7 @@ describe Card do
     expect(card).not_to be_valid
   end
 
-  context "perform_review method" do
+  context "#perform_review" do
     it "returns false if given text isn't equal to original_text" do
       expect(card.perform_review("blah blah")).to be false
     end
@@ -48,7 +48,7 @@ describe Card do
       expect(card.perform_review("paucity")).to be true
     end
 
-    it "sets review_date to Date.today + 3 if review was successful" do
+    it "increases review_date wnen review was successful" do
       card.review_date = Date.today.prev_day
 
       card.perform_review("paucity")
@@ -60,23 +60,26 @@ describe Card do
   context "scope" do
     before(:each) do
       Card.create([
-        {original_text: "a", translated_text: "b", review_date: Date.today-1},
-        {original_text: "c", translated_text: "d", review_date: Date.today},
-        {original_text: "e", translated_text: "f", review_date: Date.today+1}
+        { original_text: "a", translated_text: "aa", review_date: Date.today - 1 },
+        { original_text: "b", translated_text: "bb", review_date: Date.today },
+        { original_text: "c", translated_text: "cc", review_date: Date.today + 1}
       ])
     end
 
-    it "reviews_today returns cards scheduled for today" do
+    it ".reviews_today returns cards scheduled for today" do
       cards = Card.reviews_today
       expect(cards.count{ |c| c.rewiev_date <= Date.today }).to eq 2
     end
 
-    it "random returns random card from scheduled for today" do
+    it ".random returns random card from scheduled for today" do
       cards = []
       10.times { cards << Card.reviews_today.random.take }
 
-      expect(cards.count { |c| c.original_text == "a" }).to be_between(2, 8)
-      expect(cards.count { |c| c.original_text == "c" }).to be_between(2, 8)
+      a_cards_count = cards.count { |c| c.original_text == "a" }
+      b_cards_count = cards.count { |c| c.original_text == "b" }
+
+      expect(a_cards_count).to be_between(2, 8)
+      expect(b_cards_count).to be_between(2, 8)
     end
   end
 end
