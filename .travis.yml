@@ -6,3 +6,4 @@ rvm:
 before_script:
   - psql -c 'create database flashcards_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - rake db:migrate RAILS_ENV=test
