@@ -2,18 +2,14 @@ require 'rails_helper'
 
 describe Card do
 
-  let (:card) { Card.new(original_text: "paucity", translated_text: "lack in amount or extent") }
+  let (:card) { build(:card) }
 
   it "sets review_date = Date.today + 3 when review_date isn't provided" do
     expect(card.review_date).to eq Date.today + 3
   end
 
-  it "is valid with a original_text and translated_text" do
-    expect(card).to be_valid
-  end
-
   it "is invalid when oringinal_text and translated_text are equal" do
-    card.translated_text = "paucity"
+    card.translated_text = "temerity"
     expect(card).not_to be_valid
   end
 
@@ -45,13 +41,13 @@ describe Card do
     end
 
     it "returns true if given text is equal to original_text" do
-      expect(card.perform_review("paucity")).to be true
+      expect(card.perform_review("temerity")).to be true
     end
 
     it "increases review_date wnen review was successful" do
       card.review_date = Date.today.prev_day
 
-      card.perform_review("paucity")
+      card.perform_review("temerity")
 
       expect(card.review_date).to eq Date.today + 3
     end

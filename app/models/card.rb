@@ -1,7 +1,12 @@
 class Card < ActiveRecord::Base
+  belongs_to :user
+
+  #validates :user, presence: true
   validates :original_text, :translated_text, :review_date, presence: true
   validate :original_and_translated_texts_are_not_equal
+
   after_initialize :default_values
+
   scope :reviews_today, -> { where('review_date <= ?', Date.today) }
   scope :random, -> { offset(rand(Card.reviews_today.count)) }
 
