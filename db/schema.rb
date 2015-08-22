@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150822094530) do
     t.text    "original_text"
     t.text    "translated_text"
     t.date    "review_date"
-    t.integer "user_id"
+    t.integer "user_id",         null: false
   end
 
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree

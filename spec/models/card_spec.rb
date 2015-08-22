@@ -54,8 +54,11 @@ describe Card do
   end
 
   context "scope" do
+
+    let (:user) { create(:user) }
+
     before(:each) do
-      Card.create([
+      user.cards.create([
         { original_text: "a", translated_text: "aa", review_date: Date.today - 1 },
         { original_text: "b", translated_text: "bb", review_date: Date.today },
         { original_text: "c", translated_text: "cc", review_date: Date.today + 1}
@@ -63,13 +66,13 @@ describe Card do
     end
 
     it ".reviews_today returns cards scheduled for today" do
-      cards = Card.reviews_today
+      cards = user.cards.reviews_today
       expect(cards.count{ |c| c.rewiev_date <= Date.today }).to eq 2
     end
 
     it ".random returns random card from scheduled for today" do
       cards = []
-      10.times { cards << Card.reviews_today.random.take }
+      10.times { cards << user.cards.reviews_today.random.take }
 
       a_cards_count = cards.count { |c| c.original_text == "a" }
       b_cards_count = cards.count { |c| c.original_text == "b" }
