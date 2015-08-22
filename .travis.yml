@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.2
+  - 2.1
+
+before_script:
+  - psql -c 'create database flashcards_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:migrate RAILS_ENV=test
