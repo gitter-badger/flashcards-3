@@ -14,7 +14,7 @@ doc = Nokogiri::HTML(open(url))
 
 rows = doc.search(".rowA, .rowB")
 
-user = User.find_by(:email => "a@b.c") || User.new(:email => "a@b.c")
+user = User.find_by(email: "a@b.c") || User.new(email: "a@b.c")
 
 user.cards.delete_all
 
