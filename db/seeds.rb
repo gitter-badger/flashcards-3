@@ -14,7 +14,9 @@ doc = Nokogiri::HTML(open(url))
 
 rows = doc.search(".rowA, .rowB")
 
-Card.delete_all
+user = User.find_by(email: "a@b.c") || User.new(email: "a@b.c")
+
+user.cards.delete_all
 
 cards = rows.map do |row|
   columns = row.css("td")
@@ -26,4 +28,4 @@ cards = rows.map do |row|
   }
 end
 
-Card.create(cards)
+user.cards.create(cards)
