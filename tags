@@ -1,0 +1,58 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AddUserRefToCard	db/migrate/20150822094530_add_user_ref_to_card.rb	/^class AddUserRefToCard < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Flashcards
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Card	app/models/card.rb	/^class Card < ActiveRecord::Base$/;"	c
+CardsController	app/controllers/cards_controller.rb	/^class CardsController < ApplicationController$/;"	c
+CreateCards	db/migrate/20150728084601_create_cards.rb	/^class CreateCards < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20150822080128_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+Flashcards	config/application.rb	/^module Flashcards$/;"	m
+HomeController	app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c
+Integration	spec/support/login_user.rb	/^      module Integration$/;"	m	class:Sorcery.TestHelpers.Rails
+PrepareUsersForSorcery	db/migrate/20150825060954_prepare_users_for_sorcery.rb	/^class PrepareUsersForSorcery < ActiveRecord::Migration$/;"	c
+Rails	spec/support/login_user.rb	/^    module Rails$/;"	m	class:Sorcery.TestHelpers
+ReviewsController	app/controllers/reviews_controller.rb	/^class ReviewsController < ApplicationController$/;"	c
+Sorcery	spec/support/login_user.rb	/^module Sorcery$/;"	m
+TestHelpers	spec/support/login_user.rb	/^  module TestHelpers$/;"	m	class:Sorcery
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserSessionsController	app/controllers/user_sessions_controller.rb	/^class UserSessionsController < ApplicationController$/;"	c
+UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+card_params	app/controllers/cards_controller.rb	/^  def card_params$/;"	f	class:CardsController
+change	db/migrate/20150728084601_create_cards.rb	/^  def change$/;"	f	class:CreateCards
+change	db/migrate/20150822080128_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20150822094530_add_user_ref_to_card.rb	/^  def change$/;"	f	class:AddUserRefToCard
+change	db/migrate/20150825060954_prepare_users_for_sorcery.rb	/^  def change$/;"	f	class:PrepareUsersForSorcery
+create	app/controllers/cards_controller.rb	/^  def create$/;"	f	class:CardsController
+create	app/controllers/reviews_controller.rb	/^  def create$/;"	f	class:ReviewsController
+create	app/controllers/user_sessions_controller.rb	/^  def create$/;"	f	class:UserSessionsController
+create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+default_values	app/models/card.rb	/^  def default_values$/;"	f	class:Card
+destroy	app/controllers/cards_controller.rb	/^  def destroy$/;"	f	class:CardsController
+destroy	app/controllers/user_sessions_controller.rb	/^  def destroy$/;"	f	class:UserSessionsController
+edit	app/controllers/cards_controller.rb	/^  def edit$/;"	f	class:CardsController
+edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+find_card	app/controllers/cards_controller.rb	/^  def find_card$/;"	f	class:CardsController
+find_user	app/controllers/users_controller.rb	/^  def find_user$/;"	f	class:UsersController
+glyph_icon	app/helpers/application_helper.rb	/^  def glyph_icon(name)$/;"	f	class:ApplicationHelper
+index	app/controllers/application_controller.rb	/^  def index$/;"	f	class:ApplicationController
+index	app/controllers/cards_controller.rb	/^  def index$/;"	f	class:CardsController
+index	app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
+login_user_post	spec/support/login_user.rb	/^        def login_user_post(email, password)$/;"	f	class:Sorcery.TestHelpers.Rails.Integration
+mb_stripcase	app/models/card.rb	/^  def mb_stripcase(str)$/;"	f	class:Card
+new	app/controllers/cards_controller.rb	/^  def new$/;"	f	class:CardsController
+new	app/controllers/reviews_controller.rb	/^  def new$/;"	f	class:ReviewsController
+new	app/controllers/user_sessions_controller.rb	/^  def new$/;"	f	class:UserSessionsController
+new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+not_authenticated	app/controllers/application_controller.rb	/^  def not_authenticated$/;"	f	class:ApplicationController
+original_and_translated_texts_are_not_equal	app/models/card.rb	/^  def original_and_translated_texts_are_not_equal$/;"	f	class:Card
+perform_review	app/models/card.rb	/^  def perform_review(user_translation)$/;"	f	class:Card
+review_params	app/controllers/reviews_controller.rb	/^  def review_params$/;"	f	class:ReviewsController
+update	app/controllers/cards_controller.rb	/^  def update$/;"	f	class:CardsController
+update	app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+user_params	app/controllers/users_controller.rb	/^  def user_params$/;"	f	class:UsersController

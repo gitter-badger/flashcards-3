@@ -2,15 +2,15 @@ class CardsController < ApplicationController
   before_action :find_card, only: [:edit, :update, :destroy]
 
   def index
-    @cards = Card.all.order(:id)
+    @cards = current_user.cards.all.order(:id)
   end
 
   def new
-    @card = Card.new
+    @card = current_user.cards.new
   end
 
   def create
-    @card = Card.new(card_params)
+    @card = current_user.cards.new(card_params)
 
     if @card.save
       redirect_to cards_path
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
   private
 
   def find_card
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end
 
   def card_params

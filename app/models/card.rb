@@ -2,6 +2,7 @@ class Card < ActiveRecord::Base
   belongs_to :user
 
   validates :user, :original_text, :translated_text, :review_date, presence: true
+  #validates :user_id, numericality: { equal_to: current_user.id }
   validate :original_and_translated_texts_are_not_equal
 
   after_initialize :default_values

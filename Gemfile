@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'simple_form'
 
+gem 'sorcery'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -46,10 +48,11 @@ group :development, :test do
 
   gem 'nokogiri'
 
-
   gem 'factory_girl_rails'
 
   gem 'guard-rspec'
+
+  gem 'launchy'
 end
 
 group :test do
