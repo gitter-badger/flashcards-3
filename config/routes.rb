@@ -15,9 +15,17 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:new, :create]
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :registrations, only: [:new, :create]
+
+  get "profile/edit" => "profile#edit", as: :edit_profile
+  put "profile" => "profile#update"
+  patch "profile" => "profile#update"
 
   resources :user_sessions, only: [:new, :create, :destroy]
+
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
 
   get 'login' => 'user_sessions#new', as: :login
   post 'logout' => 'user_sessions#destroy', as: :logout

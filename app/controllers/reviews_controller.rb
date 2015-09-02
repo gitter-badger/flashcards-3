@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   def new
-    @card = Card.reviews_today.random.take
+    @card = current_user.cards.reviews_today.random.take
   end
 
   def create
-    card = Card.find(review_params[:card_id])
+    card = current_user.cards.find(review_params[:card_id])
 
     if card.perform_review(review_params[:user_translation])
       flash[:correct_review] = true

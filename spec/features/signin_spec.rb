@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Authorization' do
+describe 'Authentication' do
   let! (:user) { create(:user) }
 
   context 'existing user' do
@@ -21,13 +21,13 @@ describe 'Authorization' do
       fill_in 'Email', with: 'new@test.ru'
       fill_in 'Пароль', with: 'qwerty'
       fill_in 'Подтверждение пароля', with: 'qwerty'
-      click_button 'Сохранить'
+      click_button 'Сохранить изменения'
 
       expect(page).to have_content('Профиль был обновлен')
     end
   end
 
-  it 'new user can register and will be signed in right after' do
+  it 'new user can register and should be signed in right after' do
     visit root_path
     click_link 'Регистрация'
     fill_in 'Email', with: 'user@space.ru'
