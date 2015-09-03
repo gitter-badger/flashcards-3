@@ -77,8 +77,8 @@ describe Card do
       a_cards_count = cards.count { |c| c.original_text == "a" }
       b_cards_count = cards.count { |c| c.original_text == "b" }
 
-      expect(a_cards_count).to be_between(2, 8)
-      expect(b_cards_count).to be_between(2, 8)
+      expect(a_cards_count).to be > 1
+      expect(b_cards_count).to be > 1
     end
   end
 end
