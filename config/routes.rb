@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
 
   get 'login' => 'user_sessions#new', as: :login
-  post 'logout' => 'user_sessions#destroy', as: :logout
+  delete 'logout' => 'user_sessions#destroy', as: :logout
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

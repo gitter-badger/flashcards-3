@@ -19,11 +19,11 @@
         <li> <%= link_to 'Добавить карточку', new_card_path %> </li>
         <% if current_user %>
           <li> <%= link_to 'Профиль', edit_profile_path %> </li>
-          <li> <%= link_to 'Выход', :logout, method: :post %> </li>
+          <li> <%= link_to 'Выход', :logout, method: :delete %> </li>
         <% else %>
           <li> <%= link_to 'Регистрация', new_registration_path %> </li>
           <li> <%= link_to 'Вход', :login %> </li>
-          <li> <%= link_to 'Войти через Twitter', auth_at_provider_path(:provider => :twitter) %> </li>
+          <li> <%= link_to 'Войти через Twitter', auth_at_provider_path(provider: :twitter) %> </li>
         <% end %>
       </ul>
     </nav>

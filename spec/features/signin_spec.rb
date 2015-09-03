@@ -16,6 +16,12 @@ describe 'Authentication' do
       expect(page).to have_content('Успешный вход')
     end
 
+    it 'can sign out' do
+      click_link 'Выход'
+
+      expect(page).to have_content('Вход')
+    end
+
     it 'can change his email and password' do
       click_link 'Профиль'
       fill_in 'Email', with: 'new@test.ru'

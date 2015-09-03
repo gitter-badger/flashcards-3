@@ -1,1 +1,17 @@
-<%= render partial: 'shared/user_form', locals: { user: @user, url: { controller: :registrations, action: :create }, title: 'Регистрация нового пользователя', submit_text: 'Зарегистрировать'} %>
+<div class="panel panel-info">
+  <div class="panel-heading">  Регистрация нового пользователя </div>
+
+  <div class="panel-body">
+    <%= simple_form_for @user, url: { controller: :registrations, action: :create } do |f| %>
+
+      <%= f.input :email, as: :string %>
+
+      <%= f.input :password, label: 'Пароль' %>
+
+      <%= f.input :password_confirmation, label: 'Подтверждение пароля' %>
+
+      <%= f.submit  'Зарегистрировать' %>
+    <% end %>
+  </div>
+</div>
+
